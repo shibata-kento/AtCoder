@@ -1,16 +1,13 @@
 n, m = map(int, input().split())
-for _ in range(n):
-    a = list(input())
-for _ in range(m):
-    b = list(input())
-result = []
+a = [input() for i in range(n)]
+b = [input() for i in range(m)]
 
-for i in range(n-m+1):
-    for j in range(n-m+1):
-        for k in range(m):
-            result.append(a[j+k][i:i+m])
-        if b == result:
+for x in range(n-m+1):
+    for y in range(n-m+1):
+        for i in range(m):
+            if b[i] != a[y+i][x:x+m]:
+                break
+        else:
             print('Yes')
             exit()
-
 print('No')
